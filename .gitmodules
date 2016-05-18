@@ -1,0 +1,3 @@
+[submodule "pyEdimax"]
+	path = pyEdimax
+	url = https://github.com/HuskerC/pyEdimax.git
