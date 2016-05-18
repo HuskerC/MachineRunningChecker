@@ -18,6 +18,7 @@ class MovingAverage:
 		if len(self.mElements) == self.mWindowSize:
 			self.mElements.pop(0)
 		self.mElements.append(number)
+		return self.average()
 	
 
 def test():
