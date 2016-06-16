@@ -19,12 +19,14 @@ class MachineChecker:
 	
 	def mainloop(self):
 		while True:
-			print "Average Value is %f" %  self.mMa.add(self.mEdimaxDevice.getCurrentPowerUsage()['amps'])
-			
+			print "Average Value is %f" %  self.mMa.add(self.mEdimaxDevice.getCurrentPowerUsage()['watts'])
+			if self.mMa.average() < self.mPowerAverageThresholdOff:
+				print "Machine has finished"
+				return
 			time.sleep(2)		
 
 def main():
-	mc = MachineChecker(4,1,'192.168.176.34')
+	mc = MachineChecker(4,8,'192.168.176.34')
 	mc.mainloop()
 
 if __name__ == "__main__":
