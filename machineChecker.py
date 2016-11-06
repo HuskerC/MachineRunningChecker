@@ -10,7 +10,7 @@ import time
 class MachineChecker:
 	mPowerAverageThresholdOn = 0.0
 	mPowerAverageThresholdOff = 0.0
-	
+
 	mMa = None
 	mEdimaxDevice = None
 
@@ -19,14 +19,14 @@ class MachineChecker:
 		self.mPowerAverageThresholdOn = thresholdOn
 		self.mPowerAverageThresholdOff = thresholdOff
 		self.mMa = MovingAverage(numAvgValues)
-	
+
 	def mainloop(self):
 		while True:
 			print "Average Value is %f" %  self.mMa.add(self.mEdimaxDevice.getCurrentPowerUsage()['watts'])
 			if self.mMa.average() < self.mPowerAverageThresholdOff:
 				print "Machine has finished"
 				return
-			time.sleep(2)		
+			time.sleep(2)
 
 def main():
 	parser = argparse.ArgumentParser();
